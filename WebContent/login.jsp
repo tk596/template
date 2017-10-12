@@ -13,22 +13,26 @@
   <meta name="description" content="" />
   <meta name="keywords" content="" />
   <meta charset="utf-8">
-  <title>Login画面</title>
+  <title></title>
   <link rel="stylesheet" href="./css/index.css" type="text/css">
+
 
 
 </head>
 <body>
+
+
+
   <div id="header">
     <div id="pr">
     </div>
   </div>
+  <div class="haikei">
   <div id="main">
     <div id="top">
-      <p>Login</p>
-    </div>
-    <div>
-      <h3>商品を購入する際にはログインをお願いします。</h3>
+          </div>
+
+<div class="chosei">
       <s:form action="LoginAction">
         <s:textfield name="loginUserId"/>
         <s:password name="loginPassword"/>
@@ -39,11 +43,14 @@
         <p>新規ユーザー登録は<a href='<s:url action="UserCreateAction" />'>こちら</a></p>
         <p>Homeへ戻る場合は<a href='<s:url action="GoHomeAction" />'>こちら</a></p>
       </div>
-    </div>
+      </div>
+
+  </div>
   </div>
   <div id="footer">
     <div id="pr">
     </div>
   </div>
+
 </body>
 </html>
