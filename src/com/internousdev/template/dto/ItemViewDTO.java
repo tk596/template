@@ -55,7 +55,7 @@ public class ItemViewDTO {
    /**
     * イメージパス
     */
-   private String[] imagePath = { "" };
+   private String imagePath;
 
 
    /**
@@ -73,7 +73,6 @@ public class ItemViewDTO {
     * 売り上げ
     */
    private  int sales;
-
 
 
    /**
@@ -215,7 +214,7 @@ public class ItemViewDTO {
     * イメージパスを取得するメソッド
     * @return imagePath イメージパス
     */
-   public String[] getImagePath() {
+   public String getImagePath() {
        return imagePath;
    }
 
@@ -223,13 +222,11 @@ public class ItemViewDTO {
     * イメージパスを格納するメソッド
     * @param imagePath セットする イメージパス
     */
-   public void setImagePath(String[] imagePath) {
+   public void setImagePath(String imagePath) {
        this.imagePath = imagePath;
    }
 
-   public void setImagePath(int num, String imagePath) {
-       this.imagePath[num] = imagePath;
-   }
+
 
    /**
     * 在庫数を取得するメソッド
@@ -295,6 +292,7 @@ public class ItemViewDTO {
    public void setSales(int sales) {
        this.sales = sales;
    }
+
 
 
 

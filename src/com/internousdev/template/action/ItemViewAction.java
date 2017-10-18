@@ -21,12 +21,12 @@ import com.opensymphony.xwork2.ActionSupport;
  */
 public class ItemViewAction extends ActionSupport {
 
-	 /**
+    /**
      * シリアルID
      */
     private static final long serialVersionUID = 8119766214351162676L;
 
-	 /**
+    /**
      * 商品ID
      */
     private int itemId;
@@ -35,6 +35,9 @@ public class ItemViewAction extends ActionSupport {
      * 商品名
      */
     private String itemName;
+
+    private int categoryId;
+
 
     /**
      * 商品カテゴリー
@@ -66,7 +69,7 @@ public class ItemViewAction extends ActionSupport {
 
         ItemViewDAO dao =new ItemViewDAO();
 
-        searchList=dao.display(category);
+        searchList=dao.display(categoryId);
 
         if(searchList.size()>0){
             result=SUCCESS;
@@ -170,6 +173,22 @@ public class ItemViewAction extends ActionSupport {
     public void setSearchList(ArrayList<ItemViewDTO> searchList) {
         this.searchList = searchList;
         }
+
+
+    /**
+     * @return categoryId
+     */
+    public int getCategoryId() {
+        return categoryId;
+    }
+
+
+    /**
+     * @param categoryId セットする categoryId
+     */
+    public void setCategoryId(int categoryId) {
+        this.categoryId = categoryId;
+    }
 
 
 }
