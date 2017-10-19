@@ -40,6 +40,19 @@ pay varchar(30),
 insert_date datetime,
 delete_date datetime
 );
+create table carts(
+  cart_id int primary key auto_increment,/*カートID*/
+  user_id int not null,/*ユーザーID*/
+  item_id int not null,/*商品ID*/
+  quantities int not null default 1,/*数量*/
+  total_price decimal(9,2) ,/*価格*/
+  is_deleted boolean default false,/*商品選択削除*/
+  created_at datetime not null default current_timestamp,/*登録日*/
+  updated_at datetime not null default current_timestamp,/*更新日*/
+
+  foreign key(user_id) references openconnect.users(user_id),
+  foreign key(item_id) references items(item_id)
+);
 
 drop table if exists items;
 
@@ -47,7 +60,7 @@ create table items (
     item_id int not null auto_increment primary key,/*商品番号*/
     item_name varchar(100) not null,/*商品名*/
     category_id int not null,/*カテゴリー番号*/
-    price decimal(9,2) not null,/*単価*/
+    price int not null,/*単価*/
     category varchar(20) not null,/*カテゴリ名*/
     img_path varchar(255) not null,/*イメージパス*/
     stocks int not null,/*在庫数*/
@@ -65,7 +78,7 @@ insert into items(item_id,item_name,category_id,price,stocks,category,img_path,i
 "説明文"),
 (2,'アイテム２',1,200,1000,"コスチューム","./image/image02.jpg",
 "説明文"),
-(3,'アイテム３',1,000,1000,"コスチューム","./image/image03.jpg",
+(3,'アイテム３',1,100,1000,"コスチューム","./image/image03.jpg",
 "説明文"),
 (4,'アイテム４',1,500,1000,"コスチューム","./image/image04.jpg",
 "説明文"),
@@ -75,29 +88,29 @@ insert into items(item_id,item_name,category_id,price,stocks,category,img_path,i
 "説明文"),
 (7,'練習２',2,500,1000,"フード","./image/image02.jpg",
 "説明文"),
-(8,'練習２',2,1000,1000,"フード","./image/image02.jpg",
+(8,'練習２',2,100,1000,"フード","./image/image02.jpg",
 "説明文"),
 (9,'練習２',2,700,1000,"フード","./image/image02.jpg",
 "説明文"),
-(10,'練習２',2,4300,1000,"フード","./image/image02.jpg",
+(10,'練習２',2,430,1000,"フード","./image/image02.jpg",
 "説明文"),
-(11,'練習２',2,1000,1000,"フード","./image/image02.jpg",
+(11,'練習２',2,100,1000,"フード","./image/image02.jpg",
 "説明文"),
 (12,'練習２',2,900,1000,"フード","./image/image02.jpg",
 "説明文"),
-(13,'練習１',3,2500,1000,"インテリア","./image/image01.jpg",
+(13,'練習１',3,200,1000,"インテリア","./image/image01.jpg",
 "説明文"),
-(14,'練習１',3,4000,1000,"インテリア","./image/image01.jpg",
+(14,'練習１',3,400,1000,"インテリア","./image/image01.jpg",
 "説明文
 "),
-(15,'練習１',3,1000,1000,"インテリア","./image/image01.jpg",
+(15,'練習１',3,100,1000,"インテリア","./image/image01.jpg",
 "説明文"),
-(16,'練習１',3,3000,1000,"インテリア","./image/image01.jpg",
+(16,'練習１',3,300,1000,"インテリア","./image/image01.jpg",
 "説明文
 "),
-(17,'練習１',3,4200,1000,"インテリア","./image/image01.jpg",
+(17,'練習１',3,420,1000,"インテリア","./image/image01.jpg",
 "説明文"),
-(18,'練習１',3,3000,1000,"インテリア","./image/image01.jpg",
+(18,'練習１',3,300,1000,"インテリア","./image/image01.jpg",
 "説明文");
 
 

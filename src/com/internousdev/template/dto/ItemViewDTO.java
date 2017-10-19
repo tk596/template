@@ -3,8 +3,6 @@
  */
 package com.internousdev.template.dto;
 
-import java.math.BigDecimal;
-
 /**
  * @author internousdev
  *
@@ -39,7 +37,7 @@ public class ItemViewDTO {
    /**
     * 価格
     */
-   private  BigDecimal price;
+   private  int price;
 
    /**
     * 数量
@@ -61,7 +59,7 @@ public class ItemViewDTO {
    /**
     * 在庫数
     */
-   private int stock=0;
+   private int stock;
 
 
    /**
@@ -161,37 +159,7 @@ public class ItemViewDTO {
        this.category=categoryName;
    }
 
-   /**
-    * 価格を取得するメソッド
-    * @return price 価格
-    */
-   public  BigDecimal getPrice(){
-       return price;
-   }
 
-   /**
-    * 価格を格納するメソッド
-    * @param price セットする 価格
-    */
-   public void setPrice( BigDecimal price){
-       this.price=price;
-   }
-
-   /**
-    * 数量を取得するメソッド
-    * @return quentities 数量
-    */
-   public int getQuantities(){
-       return quantities;
-   }
-
-   /**
-    * 数量を格納するメソッド
-    * @param quantities セットする 数量
-    */
-   public void setQuantities(int quantities){
-       this.quantities= quantities;
-   }
 
    /**
     * 詳細文を取得するメソッド
@@ -292,6 +260,34 @@ public class ItemViewDTO {
    public void setSales(int sales) {
        this.sales = sales;
    }
+
+/**
+ * @return price
+ */
+public int getPrice() {
+    return price;
+}
+
+/**
+ * @param price セットする price
+ */
+public void setPrice(int price) {
+    this.price = price;
+}
+
+/**
+ * @return quantities
+ */
+public int getQuantities() {
+    return quantities;
+}
+
+/**
+ * @param quantities セットする quantities
+ */
+public void setQuantities(int quantities) {
+    this.quantities = quantities;
+}
 
 
 

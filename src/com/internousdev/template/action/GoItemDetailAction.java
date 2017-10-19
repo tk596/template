@@ -1,7 +1,6 @@
 
 package com.internousdev.template.action;
 
-import java.math.BigDecimal;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -49,7 +48,7 @@ public class GoItemDetailAction extends ActionSupport {
     /**
      * 単価
      */
-    private BigDecimal price;
+    private int price;
 
     /**
      * 商品画像01
@@ -197,21 +196,7 @@ public class GoItemDetailAction extends ActionSupport {
         this.categoryId = categoryId;
     }
 
-    /**
-     * 単価を取得するメソッド
-     * @return price　単価
-     */
-    public  BigDecimal getPrice() {
-        return price;
-    }
 
-    /**
-     * 単価を格納するメソッド
-     * @param price セットする price
-     */
-    public void setPrice( BigDecimal price) {
-        this.price = price;
-    }
 
     /**
      * 商品画像01を取得するメソッド
@@ -345,6 +330,76 @@ public class GoItemDetailAction extends ActionSupport {
      */
     public void setStocks(int stocks) {
         this.stocks = stocks;
+    }
+
+    /**
+     * @return itemList
+     */
+    public List<ItemDTO> getItemList() {
+        return itemList;
+    }
+
+    /**
+     * @param itemList セットする itemList
+     */
+    public void setItemList(List<ItemDTO> itemList) {
+        this.itemList = itemList;
+    }
+
+    /**
+     * @return categoryId
+     */
+    public int getCategoryId() {
+        return categoryId;
+    }
+
+    /**
+     * @param categoryId セットする categoryId
+     */
+    public void setCategoryId(int categoryId) {
+        this.categoryId = categoryId;
+    }
+
+    /**
+     * @return price
+     */
+    public int getPrice() {
+        return price;
+    }
+
+    /**
+     * @param price セットする price
+     */
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
+    /**
+     * @return itemIdList
+     */
+    public List<CartDTO> getItemIdList() {
+        return itemIdList;
+    }
+
+    /**
+     * @param itemIdList セットする itemIdList
+     */
+    public void setItemIdList(List<CartDTO> itemIdList) {
+        this.itemIdList = itemIdList;
+    }
+
+    /**
+     * @return session
+     */
+    public Map<String, Object> getSession() {
+        return session;
+    }
+
+    /**
+     * @param session セットする session
+     */
+    public void setSession(Map<String, Object> session) {
+        this.session = session;
     }
 
 }

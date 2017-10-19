@@ -7,7 +7,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta http-equiv="Content-Style-Type" content="text/css" /> 
   <meta http-equiv="Content-Script-Type" content="text/javascript" />
   <meta http-equiv="imagetoolbar" content="no" />
   <meta name="description" content="" />
@@ -25,7 +25,7 @@
     <div id="top">
       <p>Home</p>
     </div>
-
+<a href='<s:url action="ItemViewAction"><s:param name="categoryId" value="%{1}"/></s:url>'>a</a>
     <div id="text-center">
       <s:form action="HomeAction">
         <s:submit value="商品購入"/>

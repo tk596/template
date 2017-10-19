@@ -35,6 +35,9 @@ public class ItemViewDAO {
                 dto.setItemId(rs.getInt("item_id"));
                 dto.setItemName(rs.getString("item_name"));
                 dto.setImagePath(rs.getString("img_path"));
+                dto.setPrice(rs.getInt("price"));
+                dto.setStock(rs.getInt("stocks"));
+
                 searchList.add(dto);
            }
             rs.close();

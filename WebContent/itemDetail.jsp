@@ -16,7 +16,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-<div id="header"></div>
+<div class="header"></div>
+<div class="main">
   <div class="main_right">
     <!--　商品１　-->
     <div class="picture">
@@ -25,13 +26,32 @@
         <div class="main_img">
           <img src="<s:property value="imagePath"/>" height="300"
             width="400" />
-
         </div>
+        <div class="item_name">
+            <s:property value="itemName" />
+          </div>
+          <div class="item_price">
+            <s:property value="price"/>
+          </div>
+          <s:form action="AddToCartAction">
+<input class="btn" type="submit" value="カートに入れる"/>
+<select name="quantities" size="1">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                  </select>
+          </s:form>
         </s:iterator>
     </div>
   </div>
+</div>
 
-
-<div id="footer"></div>
+<div class="footer"></div>
 </body>
 </html>

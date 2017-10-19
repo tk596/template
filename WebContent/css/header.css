@@ -1,0 +1,33 @@
+
+.header01 li{
+  width:20%;
+  float:left;
+  color:white;
+  list-style-type:none;
+  margin:0;
+}
+.header01{
+  height:80px;
+  background-color:aqua;
+  margin:0;
+}
+.header a{
+  text-decoration:none;
+  color:black;
+}
+ul{
+  margin:0px;
+  padding-left:0px;
+  }
+
+
+body{
+  padding:0;
+  margin:0;
+}
+.clear{
+  clear:both;
+}
+header{
+overflow: hidden;
+}

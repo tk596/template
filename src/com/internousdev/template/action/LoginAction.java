@@ -24,88 +24,88 @@ import com.opensymphony.xwork2.ActionSupport;
  */
 public class LoginAction extends ActionSupport implements SessionAware{
 
-	/**
-	 * ログインID
-	 */
-	public String loginUserId;
+    /**
+    * ログインID
+    */
+    public String loginUserId;
 
-	/**
-	 * ログインパスワード
-	 */
-	public String loginPassword;
+    /**
+    * ログインパスワード
+    */
+    public String loginPassword;
 
-	/**
-	 * 処理結果を格納
-	 */
-	public String result;
+    /**
+    * 処理結果を格納
+    */
+    public String result;
 
-	/**
-	 * ログイン情報を格納
-	 */
-	public Map<String, Object> loginUserInfoMap = new HashMap<>();
+    /**
+    * ログイン情報を格納
+    */
+    public Map<String, Object> loginUserInfoMap = new HashMap<>();
 
-	/**
-	 * ログイン情報取得DAO
-	 */
-	public LoginDAO loginDAO = new LoginDAO();
+    /**
+    * ログイン情報取得DAO
+    */
+    public LoginDAO loginDAO = new LoginDAO();
 
-	/**
-	 * ログイン情報格納IDTO
-	 */
-	private LoginDTO loginDTO = new LoginDTO();
+    /**
+    * ログイン情報格納IDTO
+    */
+    private LoginDTO loginDTO = new LoginDTO();
 
-	/**
-	 * アイテム情報を取得
-	 */
-	public BuyItemDAO buyItemDAO = new BuyItemDAO();
+    /**
+    * アイテム情報を取得
+    */
+    public BuyItemDAO buyItemDAO = new BuyItemDAO();
 
-	/**
-	 * 実行メソッド
-	 */
-	public String execute() {
+    /**
+    * 実行メソッド
+    */
+    public String execute() {
 
-		result = ERROR;
+        result = ERROR;
 
-		// ログイン実行
-		loginDTO = loginDAO.getLoginUserInfo(loginUserId, loginPassword);
+        // ログイン実行
+        loginDTO = loginDAO.getLoginUserInfo(loginUserId, loginPassword);
 
-		loginUserInfoMap.put("loginUser", loginDTO);
+        loginUserInfoMap.put("loginUser", loginDTO);
 
-		// ログイン情報を比較
-		if(((LoginDTO) loginUserInfoMap.get("loginUser")).getLoginFlg()) {
-			result = SUCCESS;
+        // ログイン情報を比較
+        if(((LoginDTO) loginUserInfoMap.get("loginUser")).getLoginFlg()) {
+            result = SUCCESS;
 
-			// アイテム情報を取得
-			BuyItemDTO buyItemDTO = buyItemDAO.getBuyItemInfo();
-			loginUserInfoMap.put("login_user_id",	loginDTO.getLoginId());
-			loginUserInfoMap.put("id", buyItemDTO.getId());
-			loginUserInfoMap.put("buyItem_name", buyItemDTO.getItemName());
-			loginUserInfoMap.put("buyItem_price", buyItemDTO.getItemPrice());
+            // アイテム情報を取得
+            BuyItemDTO buyItemDTO = buyItemDAO.getBuyItemInfo();
+            loginUserInfoMap.put("login_user_id",	loginDTO.getLoginId());
+            loginUserInfoMap.put("id", buyItemDTO.getId());
+            loginUserInfoMap.put("buyItem_name", buyItemDTO.getItemName());
+            loginUserInfoMap.put("buyItem_price", buyItemDTO.getItemPrice());
 
-			return result;
-		}
+            return result;
+        }
 
-		return result;
-	}
+        return result;
+    }
 
-	public String getLoginUserId() {
-		return loginUserId;
-	}
+    public String getLoginUserId() {
+        return loginUserId;
+    }
 
-	public void setLoginUserId(String loginUserId) {
-		this.loginUserId = loginUserId;
-	}
+    public void setLoginUserId(String loginUserId) {
+        this.loginUserId = loginUserId;
+    }
 
-	public String getLoginPassword() {
-		return loginPassword;
-	}
+    public String getLoginPassword() {
+        return loginPassword;
+    }
 
-	public void setLoginPassword(String loginPassword) {
-		this.loginPassword = loginPassword;
-	}
+    public void setLoginPassword(String loginPassword) {
+        this.loginPassword = loginPassword;
+    }
 
-	@Override
-	public void setSession(Map<String, Object> loginUserInfoMap) {
-		this.loginUserInfoMap = loginUserInfoMap;
-	}
+    @Override
+    public void setSession(Map<String, Object> loginUserInfoMap) {
+        this.loginUserInfoMap = loginUserInfoMap;
+    }
 }

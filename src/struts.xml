@@ -87,6 +87,15 @@
       <result name="success">itemDetail.jsp</result>
       <result name="error">myPage.jsp</result>
     </action>
+<!-- 10/19ここから -->
+<!-- カートに商品を追加する -->
+    <action name="AddToCartAction"
+      class="com.internousdev.template.action.AddToCartAction"
+      method="execute">
+      <result name="success">home.jsp</result>
+      <result name="error">home.jsp</result>
+      <result name="login">login.jsp</result>
+    </action>
 
   </package>
 </struts>
