@@ -18,7 +18,7 @@
 </head>
 
 <body>
-<div id="header">
+<div class="header">
 </div>
   <div class="maintop">
     <div class="title">
@@ -67,7 +67,7 @@
 
   <div class="clear"></div>
 
-<div id="footer">
+<div class="footer">
 </div>
 </body>
 </html>

@@ -2,7 +2,6 @@ package com.internousdev.template.action;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
@@ -17,9 +16,7 @@ public class MyPageAction extends ActionSupport implements SessionAware{
 	/**
 	 * ログイン情報を格納
 	 */
-	public Map<String, Object> loginInfoMap = new HashMap<>();
-	
-	public Map<String, Object> historyList = new HashMap<>();
+	public Map<String, Object> session;
 
 	/**
 	 * マイページ情報取得DAO
@@ -40,7 +37,7 @@ public class MyPageAction extends ActionSupport implements SessionAware{
 	 * 処理結果
 	 */
 	public String result;
-	
+
 	public String message = null;
 
 	/**
@@ -50,14 +47,14 @@ public class MyPageAction extends ActionSupport implements SessionAware{
 	 */
 	public String execute() throws SQLException {
 
-		if (!loginInfoMap.containsKey("id")) {
+		if (!session.containsKey("id")) {
 			return ERROR;
 		}
 
 		// 商品履歴を削除しない場合
 		if(deleteFlg == null) {
-			String item_transaction_id = loginInfoMap.get("id").toString();
-			String user_master_id = loginInfoMap.get("login_user_id").toString();
+			String item_transaction_id = session.get("id").toString();
+			String user_master_id = session.get("login_user_id").toString();
 
 			myPageList = myPageDAO.getMyPageUserInfo(item_transaction_id, user_master_id);
 
@@ -81,8 +78,8 @@ public class MyPageAction extends ActionSupport implements SessionAware{
 	 */
 	public void delete() throws SQLException {
 
-		String item_transaction_id = loginInfoMap.get("id").toString();
-		String user_master_id = loginInfoMap.get("login_user_id").toString();
+		String item_transaction_id = session.get("id").toString();
+		String user_master_id = session.get("login_user_id").toString();
 
 		int res = myPageDAO.buyItemHistoryDelete(item_transaction_id, user_master_id);
 
@@ -104,8 +101,45 @@ public class MyPageAction extends ActionSupport implements SessionAware{
 		this.deleteFlg = deleteFlg;
 	}
 
-	@Override
-	public void setSession(Map<String, Object> loginSessionMap) {
-		this.loginInfoMap = loginSessionMap;
+	public Map<String, Object> getSession() {
+		return session;
 	}
+
+	public void setSession(Map<String, Object> session) {
+		this.session = session;
+	}
+
+	public MyPageDAO getMyPageDAO() {
+		return myPageDAO;
+	}
+
+	public void setMyPageDAO(MyPageDAO myPageDAO) {
+		this.myPageDAO = myPageDAO;
+	}
+
+	public ArrayList<MyPageDTO> getMyPageList() {
+		return myPageList;
+	}
+
+	public void setMyPageList(ArrayList<MyPageDTO> myPageList) {
+		this.myPageList = myPageList;
+	}
+
+	public String getResult() {
+		return result;
+	}
+
+	public void setResult(String result) {
+		this.result = result;
+	}
+
+	public String getMessage() {
+		return message;
+	}
+
+	public void setMessage(String message) {
+		this.message = message;
+	}
+
+
 }

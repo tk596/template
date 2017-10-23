@@ -18,12 +18,12 @@
 
 </head>
 <body>
-  <div id="header">
-    <div id="pr">
+  <div class="header">
+    <div class="pr">
     </div>
   </div>
-  <div id="main">
-    <div id="top">
+  <div class="main">
+    <div class="top">
       <p>UserCreateConfirm</p>
     </div>
     <div><br>
@@ -34,8 +34,8 @@
       </div>
     </div>
   </div>
-  <div id="footer">
-    <div id="pr">
+  <div class="footer">
+    <div class="pr">
     </div>
   </div>
 </body>

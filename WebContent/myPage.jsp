@@ -18,12 +18,12 @@
 
 </head>
 <body>
-  <div id="header">
-    <div id="pr">
+  <div class="header">
+    <div class="pr">
     </div>
   </div>
-  <div id="main">
-    <div id="top">
+  <div class="main">
+    <div class="top">
       <p>MyPage</p>
     </div>
     <div>
@@ -58,14 +58,14 @@
     <s:if test="message != null">
       <h3><s:property value="message"/></h3>
     </s:if>
-      <div id="text-right">
+      <div class="text-right">
         <p>Homeへ戻る場合は<a href='<s:url action="GoHomeAction" />'>こちら</a></p>
         <p>ログアウトする場合は<a href='<s:url action="LogoutAction" />'>こちら</a></p>
       </div>
     </div>
   </div>
-  <div id="footer">
-    <div id="pr">
+  <div class="footer">
+    <div class="pr">
     </div>
   </div>
 </body>

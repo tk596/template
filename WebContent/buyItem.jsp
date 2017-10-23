@@ -18,12 +18,12 @@
 
 </head>
 <body>
-  <div id="header">
-    <div id="pr">
+  <div class="header">
+    <div class="pr">
     </div>
   </div>
-  <div id="main">
-    <div id="top">
+  <div class="main">
+    <div class="top">
       <p>BuyItem</p>
     </div>
     <div>
@@ -34,7 +34,7 @@
             <span>商品名</span>
           </td>
           <td>
-            <s:property value="loginUserInfoMap.buyItem_name" /><br>
+            <s:property value="session.buyItem_name" /><br>
           </td>
         </tr>
         <tr>
@@ -42,7 +42,7 @@
             <span>値段</span>
           </td>
           <td>
-            <s:property value="loginUserInfoMap.buyItem_price" /><span>円</span>
+            <s:property value="session.buyItem_price" /><span>円</span>
           </td>
         </tr>
         <tr>
@@ -81,8 +81,8 @@
       </div>
     </div>
   </div>
-  <div id="footer">
-    <div id="pr">
+  <div class="footer">
+    <div class="pr">
     </div>
   </div>
 </body>

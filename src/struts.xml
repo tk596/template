@@ -22,7 +22,7 @@
 
     <!-- LoginAction -->
     <action name="LoginAction" class="com.internousdev.template.action.LoginAction" method="execute">
-      <result name="success">buyItem.jsp</result>
+      <result name="success">home.jsp</result>
       <result name="create">userCreate.jsp</result>
       <result name="error">login.jsp</result>
     </action>
@@ -87,15 +87,7 @@
       <result name="success">itemDetail.jsp</result>
       <result name="error">myPage.jsp</result>
     </action>
-<!-- 10/19ここから -->
-<!-- カートに商品を追加する -->
-    <action name="AddToCartAction"
-      class="com.internousdev.template.action.AddToCartAction"
-      method="execute">
-      <result name="success">home.jsp</result>
-      <result name="error">home.jsp</result>
-      <result name="login">login.jsp</result>
-    </action>
+
 
   </package>
 </struts>

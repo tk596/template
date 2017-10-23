@@ -16,19 +16,19 @@ public class UserCreateComplateAction extends ActionSupport implements SessionAw
 
 	public String userName;
 
-	public Map<String,Object> createUserSession;
+	public Map<String,Object> session;
 
 	public String result;
 
-	public SessionAware session = new UserCreateConfirmAction();
+	public SessionAware session01 = new UserCreateConfirmAction();
 
 	public UserCreateComplateDAO userCreateComplateDAO = new UserCreateComplateDAO();
 
 	public String execute() throws SQLException {
 
-		userCreateComplateDAO.cerateUser(createUserSession.get("loginUserId").toString(),
-				createUserSession.get("loginPassword").toString(),
-				createUserSession.get("userName").toString());
+		userCreateComplateDAO.cerateUser(session.get("loginUserId").toString(),
+				session.get("loginPassword").toString(),
+				session.get("userName").toString());
 
 		result = SUCCESS;
 
@@ -59,8 +59,37 @@ public class UserCreateComplateAction extends ActionSupport implements SessionAw
 		this.userName = userName;
 	}
 
-	@Override
-	public void setSession(Map<String, Object> createUserSession) {
-		this.createUserSession = createUserSession;
+	public Map<String, Object> getSession() {
+		return session;
 	}
+
+	public void setSession(Map<String, Object> session) {
+		this.session = session;
+	}
+
+	public String getResult() {
+		return result;
+	}
+
+	public void setResult(String result) {
+		this.result = result;
+	}
+
+	public SessionAware getSession01() {
+		return session01;
+	}
+
+	public void setSession01(SessionAware session01) {
+		this.session01 = session01;
+	}
+
+	public UserCreateComplateDAO getUserCreateComplateDAO() {
+		return userCreateComplateDAO;
+	}
+
+	public void setUserCreateComplateDAO(UserCreateComplateDAO userCreateComplateDAO) {
+		this.userCreateComplateDAO = userCreateComplateDAO;
+	}
+
+
 }
