@@ -6,7 +6,6 @@ import org.apache.struts2.interceptor.SessionAware;
 
 import com.internousdev.template.dao.BuyItemDAO;
 import com.internousdev.template.dao.LoginDAO;
-import com.internousdev.template.dto.BuyItemDTO;
 import com.internousdev.template.dto.LoginDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -26,12 +25,12 @@ public class LoginAction extends ActionSupport implements SessionAware{
     /**
     * ログインID
     */
-    public String loginUserId;
+    public String userId;
 
     /**
     * ログインパスワード
     */
-    public String loginPassword;
+    public String password;
 
     /**
     * 処理結果を格納
@@ -66,7 +65,7 @@ public class LoginAction extends ActionSupport implements SessionAware{
         result = ERROR;
 
         // ログイン実行
-        loginDTO = loginDAO.getLoginUserInfo(loginUserId, loginPassword);
+        loginDTO = loginDAO.getLoginUserInfo(userId, password);
 
         session.put("loginUser", loginDTO);
 
@@ -74,12 +73,6 @@ public class LoginAction extends ActionSupport implements SessionAware{
         if(((LoginDTO) session.get("loginUser")).getLoginFlg()) {
             result = SUCCESS;
 
-            // アイテム情報を取得
-            BuyItemDTO buyItemDTO = buyItemDAO.getBuyItemInfo();
-            session.put("login_user_id",	loginDTO.getLoginId());
-            session.put("id", buyItemDTO.getId());
-            session.put("buyItem_name", buyItemDTO.getItemName());
-            session.put("buyItem_price", buyItemDTO.getItemPrice());
 
             return result;
         }
@@ -87,21 +80,46 @@ public class LoginAction extends ActionSupport implements SessionAware{
         return result;
     }
 
-    public String getLoginUserId() {
-        return loginUserId;
-    }
 
-    public void setLoginUserId(String loginUserId) {
-        this.loginUserId = loginUserId;
-    }
 
-    public String getLoginPassword() {
-        return loginPassword;
-    }
 
-    public void setLoginPassword(String loginPassword) {
-        this.loginPassword = loginPassword;
-    }
+
+
+	public String getUserId() {
+		return userId;
+	}
+
+
+
+
+
+
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
+
+
+
+
+
+
+	public String getPassword() {
+		return password;
+	}
+
+
+
+
+
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+
+
+
+
 
 	public String getResult() {
 		return result;

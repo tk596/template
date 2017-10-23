@@ -33,7 +33,7 @@
           <div class="item_price">
             <s:property value="price"/>
           </div>
-          <s:form action="AddToCartAction">
+          <s:form action="GoCartAction">
 <input class="btn" type="submit" value="カートに入れる"/>
 <select name="quantities" size="1">
                     <option value="1">1</option>

@@ -27,8 +27,8 @@
       <div class="chosei">
         <div class="chosei2">
           <s:form action="LoginAction">
-            <s:textfield name="loginUserId" />
-            <s:password name="loginPassword" />
+            <s:textfield name="UserId" />
+            <s:password name="Password" />
             <s:submit value="ログイン" />
           </s:form>
           <br />

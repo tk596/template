@@ -22,23 +22,23 @@ public class LoginDAO {
 	 * @param loginPassword
 	 * @return LoginDTO
 	 */
-	public LoginDTO getLoginUserInfo(String loginUserId, String loginPassword) {
+	public LoginDTO getLoginUserInfo(String userId, String Password) {
 
-		String sql = "SELECT * FROM login_user_transaction where login_id = ? AND login_pass = ?";
+		String sql = "SELECT * FROM login_user_transaction where user_id = ? AND password = ?";
 
 		try {
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
-			preparedStatement.setString(1, loginUserId);
-			preparedStatement.setString(2, loginPassword);
+			preparedStatement.setString(1, userId);
+			preparedStatement.setString(2, Password);
 
 			ResultSet resultSet = preparedStatement.executeQuery();
 
 			if(resultSet.next()) {
-				loginDTO.setLoginId(resultSet.getString("login_id"));
-				loginDTO.setLoginPassword(resultSet.getString("login_pass"));
+				loginDTO.setUserId(resultSet.getString("user_id"));
+				loginDTO.setPassword(resultSet.getString("password"));
 				loginDTO.setUserName(resultSet.getString("user_name"));
 
-				if(!(resultSet.getString("login_id").equals(null))) {
+				if(!(resultSet.getString("user_id").equals(null))) {
 					loginDTO.setLoginFlg(true);
 				}
 			}
