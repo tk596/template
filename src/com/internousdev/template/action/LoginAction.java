@@ -25,7 +25,9 @@ public class LoginAction extends ActionSupport implements SessionAware{
     /**
     * ログインID
     */
-    public String userId;
+    public int userId;
+
+    public String loginId;
 
     /**
     * ログインパスワード
@@ -65,14 +67,14 @@ public class LoginAction extends ActionSupport implements SessionAware{
         result = ERROR;
 
         // ログイン実行
-        loginDTO = loginDAO.getLoginUserInfo(userId, password);
+        loginDTO = loginDAO.getLoginUserInfo(loginId, password);
 
         session.put("loginUser", loginDTO);
 
         // ログイン情報を比較
         if(((LoginDTO) session.get("loginUser")).getLoginFlg()) {
             result = SUCCESS;
-
+            session.put("userid",	loginDTO.getUserId());
 
             return result;
         }
@@ -85,7 +87,14 @@ public class LoginAction extends ActionSupport implements SessionAware{
 
 
 
-	public String getUserId() {
+
+
+
+
+
+
+
+	public int getUserId() {
 		return userId;
 	}
 
@@ -94,9 +103,55 @@ public class LoginAction extends ActionSupport implements SessionAware{
 
 
 
-	public void setUserId(String userId) {
+
+
+
+
+
+
+
+	public void setUserId(int userId) {
 		this.userId = userId;
 	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+	public String getLoginId() {
+		return loginId;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+	public void setLoginId(String loginId) {
+		this.loginId = loginId;
+	}
+
+
+
+
+
+
+
 
 
 

@@ -9,8 +9,8 @@ use ecsite;
 drop table if exists login_user_transaction;
 
 create table login_user_transaction(
-id int not null primary key auto_increment,
-user_id varchar(16) unique,
+user_id int not null primary key auto_increment,
+login_id varchar(16) unique,
 password varchar(16),
 user_name varchar(50),
 insert_date datetime,
@@ -21,7 +21,7 @@ updated_date datetime
 drop table if exists user_buy_item_transaction;
 
 create table user_buy_item_transaction(
-id int not null primary key auto_increment,
+user_id int not null primary key auto_increment,
 item_transaction_id int,
 total_price int,
 total_count int,
@@ -79,4 +79,4 @@ insert into items(item_id,item_name,category_id,price,stocks,category,img_path,i
 
 
 
-INSERT INTO login_user_transaction(user_id, password, user_name) VALUES("internous", "internous01", "test");
+INSERT INTO login_user_transaction(login_id, password, user_name) VALUES("internous", "internous01", "test");

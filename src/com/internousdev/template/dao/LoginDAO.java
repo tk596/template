@@ -17,28 +17,28 @@ public class LoginDAO {
 
 	/**
 	 * ログインユーザ情報取得メソッド
-	 *
 	 * @param loginUserId
 	 * @param loginPassword
 	 * @return LoginDTO
 	 */
-	public LoginDTO getLoginUserInfo(String userId, String Password) {
+	public LoginDTO getLoginUserInfo(String loginId, String password) {
 
-		String sql = "SELECT * FROM login_user_transaction where user_id = ? AND password = ?";
+		String sql = "SELECT * FROM login_user_transaction where login_id = ? AND password = ?";
 
 		try {
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
-			preparedStatement.setString(1, userId);
-			preparedStatement.setString(2, Password);
+			preparedStatement.setString(1, loginId);
+			preparedStatement.setString(2, password);
 
 			ResultSet resultSet = preparedStatement.executeQuery();
 
 			if(resultSet.next()) {
-				loginDTO.setUserId(resultSet.getString("user_id"));
+				loginDTO.setLoginId(resultSet.getString("login_id"));
 				loginDTO.setPassword(resultSet.getString("password"));
 				loginDTO.setUserName(resultSet.getString("user_name"));
+				loginDTO.setUserId(resultSet.getInt("user_id"));
 
-				if(!(resultSet.getString("user_id").equals(null))) {
+				if(!(resultSet.getString("login_id").equals(null))) {
 					loginDTO.setLoginFlg(true);
 				}
 			}
