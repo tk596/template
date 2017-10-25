@@ -51,7 +51,7 @@ public class GoCartDAO {
                 while (rs2.next()) {
 
                     dto.setItemName(rs2.getString("item_name"));
-                    dto.setPrice(rs2.getFloat("price"));
+                    dto.setPrice(rs2.getInt("price"));
                     dto.setStocks(rs2.getInt("stocks"));
                     dto.setSubtotal((int) (dto.getPrice() * dto.getQuantities()));
                 }

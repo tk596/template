@@ -10,6 +10,7 @@ import com.internousdev.template.dto.CartDTO;
 import com.internousdev.template.dto.ItemDTO;
 import com.internousdev.template.util.DBConnector;
 
+
 /**
  * カートテーブル情報追加に関するクラス
  * @author nakajima takuya
@@ -94,8 +95,17 @@ public class AddToCartDAO {
                 }
             }
 
-
-
+            CartDeleteDAO delete = new CartDeleteDAO();
+            ps.close();
+            rs.close();
+            ps = con.prepareStatement(sql2);
+            ps.setInt(1, userId);
+            ps.setInt(2, itemId);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                quantities += rs.getInt("quantities");
+                delete.delete(userId, rs.getInt("cart_id"));
+            }
 
             if (quantities > 50){
                 quantities = 50;
@@ -169,7 +179,7 @@ public class AddToCartDAO {
                 while (rs2.next()) {
 
                     dto.setItemName(rs2.getString("item_name"));
-                    dto.setPrice(rs2.getFloat("price"));
+                    dto.setPrice(rs2.getInt("price"));
                     dto.setStocks(rs.getInt("stocks"));
                 }
             }

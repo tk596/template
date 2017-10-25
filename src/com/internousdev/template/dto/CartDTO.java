@@ -31,7 +31,7 @@ public class CartDTO {
     /**
      * 単価
      */
-    private float price;
+    private int price;
 
     /**
      * 数量
@@ -120,7 +120,7 @@ public class CartDTO {
      * 単価を取得するメソッド
      * @return price 単価
      */
-    public float getPrice() {
+    public int getPrice() {
         return price;
     }
 
@@ -128,7 +128,7 @@ public class CartDTO {
      * 単価を格納するメソッド
      * @param price セットする price
      */
-    public void setPrice(float price) {
+    public void setPrice(int price) {
         this.price = price;
     }
 
