@@ -263,14 +263,14 @@ input[type="image"] {
 
 .price{
   border-bottom:1px solid;
-  background-color:#FF8C00;
+  background-color:#ff8080;
   line-height:40px;
   height:40px;
 }
 
 
 .price strong{
-  color:#fff;
+  color:#00ff80;
 text-shadow: 2px 3px 8px #000000;
 border-bottom:1px solid #fff;
   }

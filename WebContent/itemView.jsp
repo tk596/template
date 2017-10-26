@@ -20,12 +20,7 @@
 <body>
 <div class="header">
 </div>
-  <div class="maintop">
-    <div class="title">
 
-      <div class="maintxt"></div>
-    </div>
-  </div>
 
   <div class="main_right">
 

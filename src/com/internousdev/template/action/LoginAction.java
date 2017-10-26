@@ -4,7 +4,6 @@ import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
-import com.internousdev.template.dao.BuyItemDAO;
 import com.internousdev.template.dao.LoginDAO;
 import com.internousdev.template.dto.LoginDTO;
 import com.opensymphony.xwork2.ActionSupport;
@@ -57,7 +56,6 @@ public class LoginAction extends ActionSupport implements SessionAware{
     /**
     * アイテム情報を取得
     */
-    public BuyItemDAO buyItemDAO = new BuyItemDAO();
 
     /**
     * 実行メソッド
@@ -208,13 +206,7 @@ public class LoginAction extends ActionSupport implements SessionAware{
 		this.loginDTO = loginDTO;
 	}
 
-	public BuyItemDAO getBuyItemDAO() {
-		return buyItemDAO;
-	}
 
-	public void setBuyItemDAO(BuyItemDAO buyItemDAO) {
-		this.buyItemDAO = buyItemDAO;
-	}
 
 
 }

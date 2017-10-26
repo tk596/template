@@ -51,7 +51,6 @@ create table items (
     item_name varchar(100) not null,/*商品名*/
     category_id int not null,/*カテゴリー番号*/
     price int not null,/*単価*/
-    category varchar(20) not null,/*カテゴリ名*/
     img_path varchar(255) not null,/*イメージパス*/
     stocks int not null,/*在庫数*/
     sales int default 0,/*売り上げ数*/
@@ -63,18 +62,18 @@ create table items (
 
 
 
-insert into items(item_id,item_name,category_id,price,stocks,category,img_path,item_detail) values
-(1,'アイテム１',1,500,1000,"コスチューム","./image/image01.jpg",
+insert into items(item_id,item_name,category_id,price,stocks,img_path,item_detail) values
+(1,'アイテム１',1,500,1000,"./image/image01.jpg",
 "説明文"),
-(2,'アイテム２',1,200,1000,"コスチューム","./image/image02.jpg",
+(2,'アイテム２',1,200,1000,"./image/image02.jpg",
 "説明文"),
-(3,'アイテム３',1,100,1000,"コスチューム","./image/image03.jpg",
+(3,'アイテム３',1,100,1000,"./image/image03.jpg",
 "説明文"),
-(4,'アイテム４',1,500,1000,"コスチューム","./image/image04.jpg",
+(4,'アイテム４',1,500,1000,"./image/image04.jpg",
 "説明文"),
-(5,'アイテム５',1,200,1000,"コスチューム","./image/image05.jpg",
+(5,'アイテム５',1,200,1000,"./image/image05.jpg",
 "説明文"),
-(6,'アイテム６',1,800,1000,"コスチューム","./image/image06.jpg",
+(6,'アイテム６',1,800,1000,"./image/image06.jpg",
 "説明文");
 
 

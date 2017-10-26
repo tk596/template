@@ -1,273 +1,146 @@
 package com.internousdev.template.action;
+
 import java.util.ArrayList;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
-import com.internousdev.template.dao.GoCartDAO;
 import com.internousdev.template.dto.CartDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
- * カートの情報を取得するアクションクラス
  *
- * @author nakajima takuya
- * @since 2017/09/12
- * @version 1.1
  */
 
 public class GoCartAction extends ActionSupport implements SessionAware {
-	/**
-	 * シリアルID
-	 */
-	private static final long serialVersionUID = 8015241731370150943L;
-	/**
-	 * ユーザーID
-	 */
-	private int userId;
-	/**
-	 * 商品ID
-	 */
-	private int itemId;
-	/**
-	 * 商品名
-	 */
-	private String itemName;
-	/**
-	 * 単価
-	 */
-	private int price;
-	/**
-	 * 数量
-	 */
-	private int quantities;
-	/**
-	 * 在庫数
-	 */
-	private int stocks;
 
-	/**
-	 * イメージパスファイル
-	 */
-	private String imgPath;
-	/**
-	 * 合計金額
-	 */
-	private float amountAll;
-	/**
-	 * カート内の商品情報を入れるリスト
-	 */
-	private ArrayList<CartDTO> cartList = new ArrayList<>();
-	/**
-	 * セッション情報
-	 */
+	private int userId;
+	private int itemId;
+	private String itemName;
+	private int price;
+	private int quantities;
+	private int stocks;
+	private ArrayList<CartDTO> CartList = new ArrayList<CartDTO>();
 	private Map<String, Object> session;
 
-	/**
-	 * 実行メソッド 処理内容と順番 1：セッション情報を持っているか判断 2：session内のuserIdを使用し、カートへ登録された情報を取得
-	 * 3：カート内の情報を元に合計金額を算出
-	 */
-	public String execute()  {
+	@SuppressWarnings("unchecked")
 
-
+	public String execute() {
 		if (session.containsKey("userId")) {
+			CartDTO dto = new CartDTO();
+			if (quantities <= stocks) {
+				userId = (int) session.get("userId");
+				dto.setUserId(userId);
+				dto.setItemId(itemId);
+				dto.setStocks(stocks);
+				dto.setPrice(price);
+				dto.setItemName(itemName);
+				dto.setQuantities(quantities);
+				dto.setTotalPrice(price * quantities);
+				if (session.get("cartList") != null) {
+					CartList = (ArrayList<CartDTO>) session.get("cartList");
+					int cartSize = CartList.size();
+					for (int i = 0; i < cartSize; i++) {
+						if (CartList.get(i).getItemId() == itemId) {
+							int ListIndex = i;
+							CartDTO dto2 = new CartDTO();
+							dto2.setUserId(CartList.get(i).getUserId());
+							dto2.setItemId(CartList.get(i).getItemId());
+							dto2.setItemName(CartList.get(i).getItemName());
+							dto2.setStocks(CartList.get(i).getStocks());
+							dto2.setPrice(CartList.get(i).getPrice());
+							dto2.setQuantities(CartList.get(i).getPrice());
+							dto2.setTotalPrice(CartList.get(i).getTotalPrice());
+							if (ListIndex >= 0 && cartSize > 1) {
+								CartList.set(ListIndex, dto2);
+								session.put("cartList", CartList);
+								return SUCCESS;
+							} else if (ListIndex == 0 && cartSize == 1) {
+								CartList.set(ListIndex, dto2);
+								session.put("cartList", CartList);
+								return SUCCESS;
+							}
+						}
+					}
+				}
+				CartList.add(dto);
+				session.put("cartList", CartList);
+				return SUCCESS;
 
-			userId = (int) session.get("userId");
-			GoCartDAO dao = new GoCartDAO();
-			cartList = dao.selectedItem(userId);
-			for (int i = 0; i < cartList.size(); i++) {
-				amountAll += (cartList.get(i).getPrice()) * (cartList.get(i).getQuantities());
 			}
-			return  SUCCESS;
-		}else{
+			return ERROR;
+		} else {
 			return LOGIN;
 		}
 	}
 
-	/**
-	 * ユーザーIDを取得するメソッド
-	 *
-	 * @return userId ユーザーID
-	 */
+	public void setStocks(int stocks) {
+		this.stocks = stocks;
+	}
+
 	public int getUserId() {
 		return userId;
 	}
 
-	/**
-	 * ユーザーIDを格納するメソッド
-	 *
-	 * @param userId
-	 *            セットする userId
-	 */
 	public void setUserId(int userId) {
 		this.userId = userId;
 	}
 
-	/**
-	 * 商品IDを取得するメソッド
-	 *
-	 * @return itemId
-	 */
 	public int getItemId() {
 		return itemId;
 	}
 
-	/**
-	 * 商品IDを格納するメソッド
-	 *
-	 * @param itemId
-	 *            セットする itemId
-	 */
 	public void setItemId(int itemId) {
 		this.itemId = itemId;
 	}
 
-	/**
-	 * 商品名を取得するメソッド
-	 *
-	 * @return itemName 商品名
-	 */
 	public String getItemName() {
 		return itemName;
 	}
 
-	/**
-	 * 商品名を格納するメソッド
-	 *
-	 * @param itemName
-	 *            セットする itemName
-	 */
 	public void setItemName(String itemName) {
 		this.itemName = itemName;
 	}
 
-	/**
-	 * 単価を格取得するメソッド
-	 *
-	 * @return price 単価
-	 */
 	public int getPrice() {
 		return price;
 	}
 
-	/**
-	 * 単価を格納するメソッド
-	 *
-	 * @param price
-	 *            セットする price
-	 */
 	public void setPrice(int price) {
 		this.price = price;
 	}
 
-	/**
-	 * 数量を取得するメソッド
-	 *
-	 * @return quantities 数量
-	 */
 	public int getQuantities() {
 		return quantities;
 	}
 
-	/**
-	 * 数量を格納するメソッド
-	 *
-	 * @param quantities
-	 *            セットする quantities
-	 */
 	public void setQuantities(int quantities) {
 		this.quantities = quantities;
 	}
 
-	/**
-	 * イメージパスファイルを取得するメソッド
-	 *
-	 * @return imgPath イメージパスファイル
-	 */
-	public String getImgPath() {
-		return imgPath;
-	}
-
-	/**
-	 * イメージパスファイルを格納するメソッド
-	 *
-	 * @param imgPath
-	 *            セットする imgPath
-	 */
-	public void setImgPath(String imgPath) {
-		this.imgPath = imgPath;
-	}
-
-	/**
-	 * 合計金額を取得するメソッド
-	 *
-	 * @return amountAll 合計金額
-	 */
-	public float getAmountAll() {
-		return amountAll;
-	}
-
-	/**
-	 * 合計金額を格納するメソッド
-	 *
-	 * @param amountAll
-	 *            セットする amountAll
-	 */
-	public void setAmountAll(float amountAll) {
-		this.amountAll = amountAll;
-	}
-
-	/**
-	 * カート内の商品情報を入れるリストを取得するメソッド
-	 *
-	 * @return cartList カート内の商品情報を入れるリスト
-	 */
-	public ArrayList<CartDTO> getCartList() {
-		return cartList;
-	}
-
-	/**
-	 * カート内の商品情報を入れるリストを格納するメソッド
-	 *
-	 * @param cartList
-	 *            セットする cartList
-	 */
-	public void setCartList(ArrayList<CartDTO> cartList) {
-		this.cartList = cartList;
-	}
-
-	/**
-	 * セッション情報を取得するメソッド
-	 *
-	 * @return session セッション情報
-	 */
-	public Map<String, Object> getSession() {
-		return session;
-	}
-
-	/**
-	 * セッションを格納するメソッド
-	 *
-	 * @param session
-	 *            セットする session
-	 */
-	public void setSession(Map<String, Object> session) {
-		this.session = session;
-	}
-
-	/**
-	 * @return stocks
-	 */
 	public int getStocks() {
 		return stocks;
 	}
 
-	/**
-	 * @param stocks
-	 *            セットする stocks
-	 */
-	public void setStocks(int stocks) {
+	public void setStock(int stocks) {
 		this.stocks = stocks;
+	}
+
+	public Map<String, Object> getSession() {
+		return session;
+	}
+
+	@Override
+	public void setSession(Map<String, Object> session) {
+		this.session = session;
+	}
+
+	public ArrayList<CartDTO> getCartList() {
+		return CartList;
+	}
+
+	public void setCartList(ArrayList<CartDTO> cartList) {
+		CartList = cartList;
 	}
 
 }

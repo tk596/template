@@ -43,7 +43,7 @@ public class AddToCartAction extends ActionSupport implements SessionAware {
 	/**
 	 * 単価
 	 */
-	private float price;
+	private int price;
 	/**
 	 * 数量
 	 */
@@ -96,14 +96,14 @@ public class AddToCartAction extends ActionSupport implements SessionAware {
 				itemStatus = dao.itemStatus(itemId);
 
 				if (dao.addToCart(userId, itemId, quantities)) {
-					return result;
+					result = SUCCESS;
 				}
 				cartList = dao.selected(userId);
 				if (cartList.size() > 0) {
 					for (int i = 0; i < cartList.size(); i++) {
 						amountAll += (cartList.get(i).getPrice()) * (cartList.get(i).getQuantities());
 					}
-					result = SUCCESS;
+					return result;
 				}
 			} else {
 				return ERROR;
@@ -205,7 +205,7 @@ public class AddToCartAction extends ActionSupport implements SessionAware {
 	 * @author nakajima takuya
 	 * @return price 価格
 	 */
-	public float getPrice() {
+	public int getPrice() {
 		return price;
 	}
 
@@ -216,7 +216,7 @@ public class AddToCartAction extends ActionSupport implements SessionAware {
 	 * @param price
 	 *            セットする price
 	 */
-	public void setPrice(float price) {
+	public void setPrice(int price) {
 		this.price = price;
 	}
 

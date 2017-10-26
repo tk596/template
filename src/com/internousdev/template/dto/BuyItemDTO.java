@@ -8,8 +8,19 @@ public class BuyItemDTO {
 
 	public String itemPrice;
 
+public int userId;
+
+	public int getUserId() {
+	return userId;
+}
+
+public void setUserId(int userId) {
+	this.userId = userId;
+}
+
 	public String getItemName() {
 		return itemName;
+
 	}
 
 	public void setItemName(String itemName) {
@@ -31,4 +42,7 @@ public class BuyItemDTO {
 	public void setId(int id) {
 		this.id = id;
 	}
-}
+
+
+	}
+

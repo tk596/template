@@ -9,9 +9,38 @@
 <title>cart.jsp</title>
 </head>
 <body>
-		<s:if test="%{cartList.size() > 0 && #session.userId != null}">
+	<!--<s:if test="%{cartList.size() > 0 && #session.userId != null}">-->
+		<s:iterator value="cartList">
+			<tr align="center">
+				<td align="left"><h4>
+						<s:property value="itemName" />
+					</h4></td>
+				<td><h4>
+						<s:property value="price" />
+					</h4></td>
+				<td><s:property value="quantities" /></td>
 
-	<s:property value="item_name" />
+				<td><s:form action="CartUpdateAction">
+						<s:hidden name="cartId" value="%{cartId}" />
+						<s:hidden name="itemId" value="%{itemId}" />
+						<s:hidden name="prevQuantities" value="%{quantities}" />
+						<input type="text" style="width: 30px; height: 20px;"
+							name="quantities" id="${cartId}" name="quantities"
+							value="${quantities}" maxlength="2"
+							<s:if test="stocks+quantities>=9"> pattern="([0-9])|([0-4][0-9])|(9)" placeholder="1-49"</s:if>
+							<s:else>pattern="[1-<s:property value="quantities+stocks"/>]*" placeholder="1-<s:property value="quantities+stocks"/>"</s:else> />
+						<button type="submit" class="btn-action marginLeft">
+						</button>
+					</s:form></td>
+				<td><s:form action="CartDeleteAction">
+						<s:hidden name="userId" value="%{userId}" />
+						<s:hidden name="cartId" value="%{cartId}" />
+						<button type="submit" class="btn-action paddingHeight">
+						</button>
+					</s:form></td>
+			</tr>
+		</s:iterator>
+		<s:property value="item_name" />
 	a
 	<s:property value="price" />
 	a
@@ -23,9 +52,8 @@
 	</s:if>
 
 	<s:else>
-	<h2>カートは空です</h2>
+		<h2>カートは空です</h2>
 	</s:else>
 
-	item_id
 </body>
 </html>

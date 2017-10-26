@@ -25,11 +25,9 @@
     <div class="top">
       <p>Home</p>
     </div>
-<a href='<s:url action="ItemViewAction"><s:param name="categoryId" value="%{1}"/></s:url>'>a</a>
+<a href='<s:url action="ItemViewAction"><s:param name="categoryId" value="%{1}"/></s:url>'>商品一覧</a>
     <div class="text-center">
-      <s:form action="HomeAction">
-        <s:submit value="商品購入"/>
-      </s:form>
+
       <s:if test="#session.userId != null">
         <p>ログアウトする場合は<a href='<s:url action="LogoutAction" />'>こちら</a></p>
       </s:if>

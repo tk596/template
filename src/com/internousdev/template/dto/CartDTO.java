@@ -2,196 +2,216 @@ package com.internousdev.template.dto;
 
 /**
  * カート情報に関するDTOクラス
+ *
  * @author REINA SATO
  * @since 2017/09/14
  * @version 1.1
  */
 public class CartDTO {
 
-    /**
-     * カートID
-     */
-    private int cartId;
+	/**
+	 * カートID
+	 */
+	private int cartId;
 
-    /**
-     * ユーザーID
-     */
-    private int userId;
+	/**
+	 * ユーザーID
+	 */
+	private int userId;
 
-    /**
-     * 商品ID
-     */
-    private int itemId;
+	/**
+	 * 商品ID
+	 */
+	private int itemId;
 
-    /**
-     * 商品名
-     */
-    private String itemName;
+	/**
+	 * 商品名
+	 */
+	private String itemName;
 
-    /**
-     * 単価
-     */
-    private int price;
+	/**
+	 * 単価
+	 */
+	private int price;
 
-    /**
-     * 数量
-     */
-    private int quantities;
+	/**
+	 * 数量
+	 */
+	private int quantities;
 
-    /**
-     * イメージパス
-     */
-    private String imgPath;
+	/**
+	 * イメージパス
+	 */
+	private String imgPath;
 
-    /**
-     * 小計
-     */
-    private float subtotal;
-    /**
-     * 在庫数
-     */
-    private int stocks;
+	/**
+	 * 小計
+	 */
+	private int totalPrice;
 
-    /**
-     * カート内商品IDを取得するメソッド
-     * @return cartId カート内商品ID
-     */
-    public int getCartId() {
-        return cartId;
-    }
+	public int getTotalPrice() {
+		return totalPrice;
+	}
 
-    /**
-     * カート内商品IDを格納するメソッド
-     * @param cartId セットする cartId
-     */
-    public void setCartId(int cartId) {
-        this.cartId = cartId;
-    }
+	/**
+	 * 在庫数
+	 */
+	private int stocks;
 
-    /**
-     * ユーザーIDを取得するメソッド
-     * @return userId ユーザーID
-     */
-    public int getUserId() {
-        return userId;
-    }
+	/**
+	 * カート内商品IDを取得するメソッド
+	 *
+	 * @return cartId カート内商品ID
+	 */
+	public int getCartId() {
+		return cartId;
+	}
 
-    /**
-     * ユーザーIDを格納するメソッド
-     * @param userId セットする userId
-     */
-    public void setUserId(int userId) {
-        this.userId = userId;
-    }
+	/**
+	 * カート内商品IDを格納するメソッド
+	 *
+	 * @param cartId
+	 *            セットする cartId
+	 */
+	public void setCartId(int cartId) {
+		this.cartId = cartId;
+	}
 
-    /**
-     * 商品IDを取得するメソッド
-     * @return itemId 商品ID
-     */
-    public int getItemId() {
-        return itemId;
-    }
+	/**
+	 * ユーザーIDを取得するメソッド
+	 *
+	 * @return userId ユーザーID
+	 */
+	public int getUserId() {
+		return userId;
+	}
 
-    /**
-     * 商品IDを格納するメソッド
-     * @param itemId セットする itemId
-     */
-    public void setItemId(int itemId) {
-        this.itemId = itemId;
-    }
+	/**
+	 * ユーザーIDを格納するメソッド
+	 *
+	 * @param userId
+	 *            セットする userId
+	 */
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
 
-    /**
-     * 商品名を取得するメソッド
-     * @return itemsName 商品名
-     */
-    public String getItemName() {
-        return itemName;
-    }
+	/**
+	 * 商品IDを取得するメソッド
+	 *
+	 * @return itemId 商品ID
+	 */
+	public int getItemId() {
+		return itemId;
+	}
 
-    /**
-     * 商品名を格納するメソッド
-     * @param itemName セットする itemName
-     */
-    public void setItemName(String itemName) {
-        this.itemName = itemName;
-    }
+	/**
+	 * 商品IDを格納するメソッド
+	 *
+	 * @param itemId
+	 *            セットする itemId
+	 */
+	public void setItemId(int itemId) {
+		this.itemId = itemId;
+	}
 
-    /**
-     * 単価を取得するメソッド
-     * @return price 単価
-     */
-    public int getPrice() {
-        return price;
-    }
+	/**
+	 * 商品名を取得するメソッド
+	 *
+	 * @return itemsName 商品名
+	 */
+	public String getItemName() {
+		return itemName;
+	}
 
-    /**
-     * 単価を格納するメソッド
-     * @param price セットする price
-     */
-    public void setPrice(int price) {
-        this.price = price;
-    }
+	/**
+	 * 商品名を格納するメソッド
+	 *
+	 * @param itemName
+	 *            セットする itemName
+	 */
+	public void setItemName(String itemName) {
+		this.itemName = itemName;
+	}
 
-    /**
-     * 数量を取得するメソッド
-     * @return quantities 数量
-     */
-    public int getQuantities() {
-        return quantities;
-    }
+	/**
+	 * 単価を取得するメソッド
+	 *
+	 * @return price 単価
+	 */
+	public int getPrice() {
+		return price;
+	}
 
-    /**
-     * 数量を格納するメソッド
-     * @param quantities セットする quantities
-     */
-    public void setQuantities(int quantities) {
-        this.quantities = quantities;
-    }
+	/**
+	 * 単価を格納するメソッド
+	 *
+	 * @param price
+	 *            セットする price
+	 */
+	public void setPrice(int price) {
+		this.price = price;
+	}
 
-    /**
-     * イメージファイルパスを取得するメソッド
-     * @return imgPath イメージファイルパス
-     */
-    public String getImgPath() {
-        return imgPath;
-    }
+	/**
+	 * 数量を取得するメソッド
+	 *
+	 * @return quantities 数量
+	 */
+	public int getQuantities() {
+		return quantities;
+	}
 
-    /**
-     * イメージファイルパスを格納するメソッド
-     * @param imgPath セットする imgPath
-     */
-    public void setImgPath(String imgPath) {
-        this.imgPath = imgPath;
-    }
+	/**
+	 * 数量を格納するメソッド
+	 *
+	 * @param quantities
+	 *            セットする quantities
+	 */
+	public void setQuantities(int quantities) {
+		this.quantities = quantities;
+	}
 
-    /**
-     * 小計を取得するメソッド
-     * @return subtotal
-     */
-    public float getSubtotal() {
-        return subtotal;
-    }
+	/**
+	 * イメージファイルパスを取得するメソッド
+	 *
+	 * @return imgPath イメージファイルパス
+	 */
+	public String getImgPath() {
+		return imgPath;
+	}
 
-    /**
-     * 小計を格納するメソッド
-     * @param subtotal セットする subtotal
-     */
-    public void setSubtotal(float subtotal) {
-        this.subtotal = subtotal;
-    }
+	/**
+	 * イメージファイルパスを格納するメソッド
+	 *
+	 * @param imgPath
+	 *            セットする imgPath
+	 */
+	public void setImgPath(String imgPath) {
+		this.imgPath = imgPath;
+	}
 
-    /**在庫数を取得するメソッド
-     * @return stocks
-     */
-    public int getStocks() {
-        return stocks;
-    }
+	/**
+	 * 在庫数を取得するメソッド
+	 *
+	 * @return stocks
+	 */
+	public int getStocks() {
+		return stocks;
+	}
 
-    /**在庫数を格納するメソッド
-     * @param stocks セットする stocks
-     */
-    public void setStocks(int stocks) {
-        this.stocks = stocks;
-    }
+	/**
+	 * 在庫数を格納するメソッド
+	 *
+	 * @param stocks
+	 *            セットする stocks
+	 */
+	public void setStocks(int stocks) {
+		this.stocks = stocks;
+	}
+
+	public void setTotalPrice(int totalPrice) {
+		this.totalPrice = totalPrice;
+	}
 
 }
