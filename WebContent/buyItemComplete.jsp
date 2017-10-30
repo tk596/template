@@ -18,26 +18,24 @@
 
 </head>
 <body>
-  <div class="header">
-    <div class="pr">
-    </div>
-  </div>
+<s:include value="header.jsp" />
   <div class="main">
     <div class="top">
-      <p>BuyItemComplate</p>
+      <p>BuyItemComplete</p>
     </div>
     <div>
       <p>購入手続きが完了致しました。</p>
       <div>
-        <a href='<s:url action="MyPageAction" />'>マイページ</a><span>から購入履歴の確認が可能です。</span>
+
         <p>Homeへ戻る場合は<a href='<s:url action="GoHomeAction" />'>こちら</a></p>
+        <p>
+						マイぺージは<a href='<s:url action="MyPageAction" />'>こちら</a>
+					</p>
       </div>
     </div>
   </div>
-  <div class="footer">
-    <div class="pr">
-    </div>
-  </div>
+   <s:include value="footer.jsp" />
+
 </body>
 </html>
 

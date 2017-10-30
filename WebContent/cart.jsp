@@ -9,51 +9,52 @@
 <title>cart.jsp</title>
 </head>
 <body>
-	<!--<s:if test="%{cartList.size() > 0 && #session.userId != null}">-->
-		<s:iterator value="cartList">
-			<tr align="center">
-				<td align="left"><h4>
-						<s:property value="itemName" />
-					</h4></td>
-				<td><h4>
-						<s:property value="price" />
-					</h4></td>
-				<td><s:property value="quantities" /></td>
+<s:include value="header.jsp" />
+	<div id="main">
+		<div>
+			<s:form action="PaymentAction">
+				<s:iterator value="CartList">
+					<s:if test="itemName != null">
+						<table>
+							<tr>
+								<td><span>商品名</span></td>
+								<td><s:property value="itemName" /><br></td>
+							</tr>
+							<tr>
+								<td><span>値段</span></td>
+								<td><s:property value="price" /><span>円</span></td>
+							</tr>
+							<tr>
+								<td><span>購入個数</span></td>
+								<td><s:property value="quantities" /><span>個</span>
+							</tr>
+						</table>
+					</s:if>
+				</s:iterator>
+				<div>
+					<p>
+						<input type="radio" name="pay" value="現金払い" checked="checked">現金払い
 
-				<td><s:form action="CartUpdateAction">
-						<s:hidden name="cartId" value="%{cartId}" />
-						<s:hidden name="itemId" value="%{itemId}" />
-						<s:hidden name="prevQuantities" value="%{quantities}" />
-						<input type="text" style="width: 30px; height: 20px;"
-							name="quantities" id="${cartId}" name="quantities"
-							value="${quantities}" maxlength="2"
-							<s:if test="stocks+quantities>=9"> pattern="([0-9])|([0-4][0-9])|(9)" placeholder="1-49"</s:if>
-							<s:else>pattern="[1-<s:property value="quantities+stocks"/>]*" placeholder="1-<s:property value="quantities+stocks"/>"</s:else> />
-						<button type="submit" class="btn-action marginLeft">
-						</button>
-					</s:form></td>
-				<td><s:form action="CartDeleteAction">
-						<s:hidden name="userId" value="%{userId}" />
-						<s:hidden name="cartId" value="%{cartId}" />
-						<button type="submit" class="btn-action paddingHeight">
-						</button>
-					</s:form></td>
-			</tr>
-		</s:iterator>
-		<s:property value="item_name" />
-	a
-	<s:property value="price" />
-	a
-	<s:property value="quantities" />
-	a
-	<s:property value="item_id" />
-	a
-	<s:property value="userId" />
-	</s:if>
-
-	<s:else>
-		<h2>カートは空です</h2>
-	</s:else>
+					</p>
+					<p class="btn-select position1">
+						<button class="btn buy" type="submit">購入</button>
+					</p>
+					<p>
+						前画面に戻る場合は<a href='<s:url action="GoHomeAction" />'>こちら</a>
+					</p>
+					<p>
+						マイぺージは<a href='<s:url action="MyPageAction" />'>こちら</a>
+					</p>
+				</div>
+			</s:form>
+			<s:else>
+				<div>
+					<h1>カートは空です。</h1>
+				</div>
+			</s:else>
+		</div>
+	</div>
+  <s:include value="footer.jsp" />
 
 </body>
 </html>

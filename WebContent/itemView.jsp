@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-  pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 
 <%@ taglib prefix="s" uri="/struts-tags"%>
 
@@ -18,51 +18,49 @@
 </head>
 
 <body>
-<div class="header">
-</div>
+	<s:include value="header.jsp" />
 
 
-  <div class="main_right">
+	<div class="main_right">
 
 
-    <!-- 商品1列目 -->
-    <!--ここまで共通部分-->
-    <s:iterator value="searchList">
-      <!--　商品１　-->
-      <div class="picture1">
+		<!-- 商品1列目 -->
+		<!--ここまで共通部分-->
+		<s:iterator value="searchList">
+			<!--　商品１　-->
+			<div class="picture1">
 
 
-        <div class="price">
+				<div class="price">
 
-          <strong><s:property value="itemName" /></strong>
-        </div>
-        <!-- price end -->
+					<strong><s:property value="itemName" /></strong>
+				</div>
+				<!-- price end -->
 
-        <a href="<s:url action="GoItemDetailAction"><s:param name="itemId" value="%{itemId}"/></s:url>">
+				<a
+					href="<s:url action="GoItemDetailAction"><s:param name="itemId" value="%{itemId}"/></s:url>">
 
-          <img class="item_img" src="<s:property value="imagePath"/>">
-        </a>
-        <div class="price2">
-          <span><s:hidden value="itemId" /></span><span class="font_en"></span>
-        </div>
-      </div>
-      <!--picture1 end  -->
-
-
-    </s:iterator>
+					<img class="item_img" src="<s:property value="imagePath"/>">
+				</a>
+				<div class="price2">
+					<span><s:hidden value="itemId" /></span><span class="font_en"></span>
+				</div>
+			</div>
+			<!--picture1 end  -->
 
 
+		</s:iterator>
 
-    <div class="clear"></div>
-    <!-- 商品一覧 floatを解除 -->
+		<div class="clear"></div>
+		<!-- 商品一覧 floatを解除 -->
 
-  </div>
-  <!-- main_right end -->
+	</div>
+	<!-- main_right end -->
 
 
-  <div class="clear"></div>
+	<div class="clear"></div>
 
-<div class="footer">
-</div>
+	<s:include value="footer.jsp" />
+
 </body>
 </html>

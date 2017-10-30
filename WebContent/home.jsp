@@ -17,6 +17,7 @@
 
 </head>
 <body>
+<s:include value="header.jsp" />
   <div class="header">
     <div class="pr">
     </div>
@@ -33,9 +34,7 @@
       </s:if>
     </div>
   </div>
-  <div class="footer">
-    <div class="pr">
-    </div>
-  </div>
+  <s:include value="footer.jsp" />
+
 </body>
 </html>

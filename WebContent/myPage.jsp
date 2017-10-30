@@ -18,6 +18,7 @@
 
 </head>
 <body>
+<s:include value="header.jsp" />
 	<div class="header">
 		<div class="pr"></div>
 	</div>
@@ -68,12 +69,7 @@
 					ログアウトする場合は<a href='<s:url action="LogoutAction" />'>こちら</a>
 				</p>
 
-				name
-				<td><s:property value="itemName" /></td> stocks
-				<td><s:property value="stocks" /></td> quantities
-				<td><s:property value="quantities" /></td> user_id
-				<td><s:property value="userId" /></td> itemid
-				<td><s:property value="itemId" /></td>
+
 
 
 			</div>

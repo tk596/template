@@ -16,7 +16,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<div class="header"></div>
+<s:include value="header.jsp" />
 	<div class="main">
 		<div class="main_right">
 			<!--　商品１　-->
@@ -57,6 +57,6 @@
 		</div>
 	</div>
 
-	<div class="footer"></div>
+  <s:include value="footer.jsp" />
 </body>
 </html>
