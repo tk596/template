@@ -6,7 +6,6 @@ package com.internousdev.template.action;
 
 
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 
 import com.internousdev.template.dao.ItemViewDAO;
@@ -14,10 +13,8 @@ import com.internousdev.template.dto.ItemViewDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**商品表示する為のアクション
- * @author kenya suzuki
- * @since 2017/09/19
- * @version 1.1
- *
+ * @author nakajima takuya
+ * @since 10/31
  */
 public class ItemViewAction extends ActionSupport {
 
@@ -35,7 +32,9 @@ public class ItemViewAction extends ActionSupport {
      * 商品名
      */
     private String itemName;
-
+    /**
+     * カテゴリID
+     */
     private int categoryId;
 
 
@@ -47,7 +46,7 @@ public class ItemViewAction extends ActionSupport {
     /**
      * 価格
      */
-    private  BigDecimal price;
+    private  int price;
 
     /**
      * 画像パス
@@ -130,7 +129,7 @@ public class ItemViewAction extends ActionSupport {
      * 価格を取得するメソッド
      * @return price 価格
      */
-    public  BigDecimal getPrice() {
+    public  int getPrice() {
         return price;
         }
 
@@ -138,7 +137,7 @@ public class ItemViewAction extends ActionSupport {
      * 価格を格納するメソッド
      * @param price 価格
      */
-    public void setPrice( BigDecimal price) {
+    public void setPrice( int price) {
         this.price = price;
         }
 

@@ -13,9 +13,8 @@ import com.opensymphony.xwork2.ActionSupport;
 
 /**
  * 商品詳細を表示
- * @author kenya suzuki
- * @since 2017/09/19
- * @version 1.1
+ * @author nakajimatakuya
+ * @since 2017/10/31
  */
 
 public class GoItemDetailAction extends ActionSupport {
@@ -50,15 +49,6 @@ public class GoItemDetailAction extends ActionSupport {
      */
     private int price;
 
-    /**
-     * 商品画像01
-     */
-    private String itemImg01;
-
-    /**
-     * 商品画像02
-     */
-    private String itemImg02;
 
     /**
      * 商品詳細
@@ -197,38 +187,6 @@ public class GoItemDetailAction extends ActionSupport {
     }
 
 
-
-    /**
-     * 商品画像01を取得するメソッド
-     * @return itemImg01　商品画像01
-     */
-    public String getItemImg01() {
-        return itemImg01;
-    }
-
-    /**
-     * 商品画像01を格納するメソッド
-     * @param itemImg01 セットする itemImg01
-     */
-    public void setItemImg01(String itemImg01) {
-        this.itemImg01 = itemImg01;
-    }
-
-    /**
-     * 商品画像02を取得するメソッド
-     * @return itemImg02　商品画像02
-     */
-    public String getItemImg02() {
-        return itemImg02;
-    }
-
-    /**
-     * 商品画像02を格納するメソッド
-     * @param itemImg02 セットする itemImg02
-     */
-    public void setItemImg02(String itemImg02) {
-        this.itemImg02 = itemImg02;
-    }
 
     /**
      * 商品詳細を取得するメソッド

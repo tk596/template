@@ -18,7 +18,7 @@ public class HomeAction extends ActionSupport implements SessionAware {
 	 */
 	public String execute() {
 		String result = "login";
-		if (session.containsKey("id")) {
+		if (session.containsKey("userId")) {
 			session.putAll(session);
 			result = SUCCESS;
 		}

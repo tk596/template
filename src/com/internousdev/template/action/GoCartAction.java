@@ -13,18 +13,38 @@ import com.opensymphony.xwork2.ActionSupport;
  */
 
 public class GoCartAction extends ActionSupport implements SessionAware {
-
+	/**
+	 *ユーザー識別用ID
+	 */
 	private int userId;
+	/**
+	 *アイテム識別用ID
+	 */
 	private int itemId;
+	/**
+	 *アイテムごとの名前
+	 */
 	private String itemName;
+	/**
+	 * 価格
+	 */
 	private int price;
+	/**
+	 * 個数
+	 */
 	private int quantities;
+	/**
+	 * 在庫数
+	 */
 	private int stocks;
 	private ArrayList<CartDTO> CartList = new ArrayList<CartDTO>();
 	private Map<String, Object> session;
 
 	@SuppressWarnings("unchecked")
-
+	/**
+	 * 1,userIdを持っているか判別（ログイン中かどうか） 2,ユーザー画面において入力された個数が在庫を上回っていないか判別
+	 * 3,dtoに必要な情報格納
+	 */
 	public String execute() {
 		if (session.containsKey("userId")) {
 			CartDTO dto = new CartDTO();
