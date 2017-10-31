@@ -28,10 +28,12 @@
 							width="400" />
 					</div>
 					<div class="item_name">
+					<td>商品名</td>
 						<s:property value="itemName" />
 					</div>
 					<div class="item_price">
-						<s:property value="price" />
+						<td>値段</td>
+						<td><s:property value="price" /><span>円</span></td>
 					</div>
 					<s:form action="GoCartAction">
 						<s:hidden theme="simple" name="itemId" value="%{itemId}"></s:hidden>

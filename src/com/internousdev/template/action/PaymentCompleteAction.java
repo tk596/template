@@ -38,7 +38,7 @@ public class PaymentCompleteAction extends ActionSupport implements SessionAware
 			String pay = (String) session.get("pay");
 			try {
 				PaymentCompleteDAO dao = new PaymentCompleteDAO();
-				dao.buyItemInfo(userId, itemId, itemName, count, price, totalPrice, pay);
+				dao.buyItemInfo(userId, itemId, itemName, count, totalPrice, totalPrice, pay);
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}

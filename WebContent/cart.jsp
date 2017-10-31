@@ -10,7 +10,7 @@
 </head>
 <body>
 <s:include value="header.jsp" />
-	<div id="main">
+	<div class="main">
 		<div>
 			<s:form action="PaymentAction">
 				<s:iterator value="CartList">
@@ -28,18 +28,18 @@
 								<td><span>購入個数</span></td>
 								<td><s:property value="quantities" /><span>個</span>
 							</tr>
-						</table>
-					</s:if>
-				</s:iterator>
-				<div>
-					<p>
+							<p>
 						<input type="radio" name="pay" value="現金払い" checked="checked">現金払い
 
 					</p>
-					<p class="btn-select position1">
+					<div class="btn-select position1">
 						<button class="btn buy" type="submit">購入</button>
-					</p>
-					<p>
+					</div>
+
+						</table>
+					</s:if>
+				</s:iterator>
+				<div>					<p>
 						前画面に戻る場合は<a href='<s:url action="GoHomeAction" />'>こちら</a>
 					</p>
 					<p>

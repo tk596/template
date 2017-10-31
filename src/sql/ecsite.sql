@@ -21,15 +21,17 @@ updated_date datetime
 drop table if exists user_buy_item_transaction;
 
 create table user_buy_item_transaction(
-user_id int not null primary key auto_increment,
+id int not null primary key auto_increment,
+user_master_id int,
 item_transaction_id int,
-total_price int,
+item_transaction_name varchar(16),
 total_count int,
-user_master_id varchar(16),
+total_price int,
 pay varchar(30),
 insert_date datetime,
 delete_date datetime
 );
+
 create table carts(
   cart_id int primary key auto_increment,/*カートID*/
   user_id int not null,/*ユーザーID*/

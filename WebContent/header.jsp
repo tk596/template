@@ -11,9 +11,9 @@
 <header>
 <div class="header01">
 <ul>
-<li><a href="home.jsp">home1</a></li>
-<li><a href="home.jsp">home2</a></li>
-<li><a href="home.jsp">home3</a></li>
+<li><a href="GoHomeAction">home1</a></li>
+<li><a href="MyPageAction">Mypage</a></li>
+<li><a href="GoCartAction">home3</a></li>
 <li><a href="home.jsp">home4</a></li>
 <li><a href="home.jsp">home5</a></li>
 </ul>
